@@ -1,0 +1,114 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+    background-color: #eee;
+}
+
+.main_content {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* header */
+header {
+    background-color: #6cf;
+    padding-bottom: 5px;
+    display: flex;
+
+    .logo {
+        width: 243px;
+        margin-left: 20px;
+
+        h1 {
+            color: #fff;
+        }
+
+        p {
+            color: #fff;
+            text-align: center;
+            margin-top: -5px;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: #1af;
+        margin-left: 30px;
+        margin-top: 35px;
+
+        .btn {
+            background-color: #fff;
+            width: 130px;
+            height: 30px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 10px;
+            padding: 5px;
+        }
+    }
+    ul {
+        color: #fff;
+        margin: 42px 20px 0 auto;
+        display: flex;
+        
+        a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        a + a {
+            margin-left: 20px;
+        }
+
+        li {
+            list-style: none;
+            display: inline;
+        }
+    }
+}
+
+/* footer部分 */
+footer {
+    height: 80px;
+    border-top: solid 1px #aaa;
+    padding-top: 20px;
+    margin-top: 20px;
+
+    ul {
+        width: 700px;
+        font-size: 12px;
+        margin: 0 auto;
+        display: flex;
+
+        a {
+            text-decoration: none;
+            color: #aaa;
+        }
+
+        a + a {
+            border-left: solid 1px #aaa;
+            padding-left: 20px;
+            margin-left: 20px;
+        }
+
+        li {
+            list-style: none;
+        }
+    }
+}

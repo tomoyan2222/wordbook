@@ -10,6 +10,33 @@
   </head>
 
   <body>
+    <div class="main_content">
+    <header>
+      <div class="logo">
+        <h1>Our,wordbook</h1>
+        <p>単語帳共有サービス</p>
+      </div>
+      <a href="#">
+        <div class="btn">単語帳を作る</div>
+      </a>
+      <ul>
+        <a href="#"><li>ログイン</li></a>
+        <a href="#"><li>新規登録</li></a>
+        <%# サインインしてる場合 %>
+        <a href="#"><li>サインアウト</li></a>
+      </ul>
+    </header>
+    
     <%= yield %>
+
+    <footer>
+      <ul>
+        <a href="#"><li>Our,wordbookについて</li></a>
+        <a href="#"><li>運営者情報</li></a>
+        <a href="#"><li>プライバシーポリシー</li></a>
+        <a href="#"><li>免除事項</li></a>
+      </ul>
+    </footer>
+    </div>
   </body>
 </html>
