@@ -38,6 +38,7 @@ nav {
     }
 }
 
+/* main article部分 */
 article {
     background-color: #ccc;
     width: 500px;
@@ -48,26 +49,41 @@ article {
     margin-left: 10px;
 
     .contents {
-        margin-top: 40px;
+        margin-top: 20px;
         margin-left: 20px;
         display: flex;
     
         img {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             margin-right: 15px;
         }
     
         .content {
             width: 300px;
-            height: 70px;
+            height: 80px;
             background-color: #fff;
-            padding-top: 5px;
+            padding-top: 2px;
             padding-left: 10px;
     
+            a {
+                color: #000;
+            }
+            
             h1 {
-                font-size: 20px;
+                font-size: 18px;
+            }
+
+            p {
+                font-size: 14px;
+                opacity: 0.7;
+            }
+
+            p:nth-child(4) {
+                font-size: 12px;
+                margin-top: -8px;
+                float: right;
             }
         }
     }
