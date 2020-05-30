@@ -89,6 +89,26 @@ article {
     }
 }
 
+/* sign_in/up部分 */
+.sign_box {
+    background-color: #fff;
+    width: 250px;
+    height: 250px;
+    padding: 25px;
+    padding-top: 15px;
+    margin-top: 40px;
+    margin-right: 100px;
+    margin-left: auto;
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .form_field {
+        margin-top: 5px;
+    }
+}
+
 /* aside部分 */
 aside {
     width: 280px;
