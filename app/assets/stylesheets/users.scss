@@ -89,8 +89,28 @@ article {
     }
 }
 
-/* sign_in/up部分 */
-.sign_box {
+/* sign_up部分 */
+.sign_up_box {
+    background-color: #fff;
+    width: 250px;
+    height: 300px;
+    padding: 25px;
+    padding-top: 15px;
+    margin-top: 40px;
+    margin-right: 100px;
+    margin-left: auto;
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .form_field {
+        margin-top: 5px;
+    }
+}
+
+/* sign_in部分 */
+.sign_in_box {
     background-color: #fff;
     width: 250px;
     height: 250px;
