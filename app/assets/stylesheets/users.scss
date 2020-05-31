@@ -38,6 +38,39 @@ nav {
     }
 }
 
+/* テンプレートaside部分 */
+aside {
+    width: 280px;
+    margin-top: 30px;
+
+    a {
+        text-decoration: none;
+        color: #22f;
+    }
+
+    .btn {
+        background-color: #fff;
+        width: 250px;
+        height: 50px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 15px;
+        box-shadow: 5px 5px 5px 0 #555;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    .ad1 {
+        background-color: #fff;
+        width: 270px;
+        height: 400px;
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+}
+
 /* main article部分 */
 article {
     background-color: #ccc;
@@ -50,7 +83,7 @@ article {
 
     .contents {
         margin-top: 20px;
-        margin-left: 20px;
+        margin-left: 30px;
         display: flex;
     
         img {
@@ -126,38 +159,5 @@ article {
 
     .form_field {
         margin-top: 5px;
-    }
-}
-
-/* aside部分 */
-aside {
-    width: 280px;
-    margin-top: 30px;
-
-    a {
-        text-decoration: none;
-        color: #22f;
-    }
-
-    .btn {
-        background-color: #fff;
-        width: 250px;
-        height: 50px;
-        font-size: 18px;
-        font-weight: bold;
-        text-align: center;
-        line-height: 50px;
-        border-radius: 15px;
-        box-shadow: 5px 5px 5px 0 #555;
-        margin-top: 10px;
-        margin-left: 10px;
-    }
-
-    .ad1 {
-        background-color: #fff;
-        width: 270px;
-        height: 400px;
-        margin-top: 20px;
-        margin-left: 10px;
     }
 }
