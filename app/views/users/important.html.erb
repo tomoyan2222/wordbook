@@ -1,0 +1,24 @@
+<div class="display_flex">
+  <%= render partial: 'users/left_nav' %>
+  <article>
+  <div class="change_important">
+    <h1>【change your password】</h1>
+    <form>
+        <div class="form_field">  
+            <label>Enter the <span>current</span> password</label>
+            →<input type="text" name="name" value="">
+        </div>
+        <div class="form_field">  
+            <label>Enter the <strong>new </strong>password</label>
+            →<input type="text" name="name" value="">
+        </div>
+        <div class="form_field">
+            <label><strong>new</strong> password again</label>
+            →<input type="text" name="original_name" value="">
+        </div>
+        <input type="submit">
+        </form>
+    </div>
+  </article>
+  <%= render partial: 'users/right_aside' %>
+</div>

@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   get '/users/word', to:'users#word'
   get '/users/likes', to:'users#likes'
   get '/users/edit', to:'users#edit'
-  get '/users/important/:id', to:'users#important'
+  get '/users/important', to:'users#important'
 end

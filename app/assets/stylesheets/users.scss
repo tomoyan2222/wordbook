@@ -126,7 +126,7 @@ article {
         }
     }
     
-    /* users/edit form部分 */
+    /* users/edit, form部分 */
     .change_profile {
         background-color: #fff;
         margin: 20px;
@@ -160,6 +160,43 @@ article {
                 height: 50px;
             }
         }    
+    }
+
+    .change_important {
+        background-color: #fff;
+        margin: 20px;
+        padding: 20px;
+        margin-left: 0;
+
+        input[type="submit"] {
+            background-color: #6cf;
+            width: 50px;
+            height: 30px;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 2px 2px 0 0 #36f;
+            margin-top: -20px;
+            margin-right: -5px;
+            float: right;
+        }
+
+        .form_field {
+            margin-top: 15px;
+
+            label {
+                display: block;
+
+                span {
+                    color: #11f;
+                    text-decoration: underline;;
+                }
+
+                strong {
+                    color: #f11;
+                }
+            }
+        }
     }
     
     /* contents */
