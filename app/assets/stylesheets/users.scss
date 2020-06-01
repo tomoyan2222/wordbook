@@ -193,17 +193,27 @@ article {
             }
             
             h1 {
-                font-size: 18px;
+                font-size: 16px;
             }
 
             p {
-                font-size: 14px;
+                font-size: 12px;
                 opacity: 0.7;
             }
 
-            p:nth-child(4) {
+            button {
+                background-color: #faf;
+                width: 30px;
+                height: 30px;
                 font-size: 12px;
-                margin-top: -8px;
+                font-weight: bold;
+                color: #ffa;
+                border: none;
+                border-radius: 50%;
+                box-shadow: 1.5px 1px 0 0.5px #f6f;
+                padding: 3px;
+                margin-top: -35px;
+                margin-right: 5px;
                 float: right;
             }
         } 
