@@ -1,0 +1,31 @@
+<div class="display_flex">
+  <%= render partial: 'users/left_nav' %>
+  <article>
+  <div class="change_profile">
+    <h1>【change your profiles】</h1>
+    <form>
+        <div class="form_field">  
+            <label>name</label>
+            <input type="text" name="name" value="">
+        </div>
+        <div class="form_field">
+            <label>user_ID</label>
+            <input type="text" name="original_name" value="">
+        </div>
+        <div class="form_field">
+            <label>my job</label>
+            <input type="text" name="job" value="">
+        </div>
+        <div class="form_field">
+            <label>image</label>
+            <input type="file" name="image"> 
+        </div>
+        <div class="form_field">
+            <label>profile</label>
+            <textarea></textarea>
+        </div>
+        </form>
+    </div>
+  </article>
+  <%= render partial: 'users/right_aside' %>
+</div>
