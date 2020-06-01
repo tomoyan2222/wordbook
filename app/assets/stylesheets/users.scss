@@ -160,6 +160,19 @@ article {
                 height: 50px;
             }
         }    
+
+        input[type="submit"] {
+            background-color: #6cf;
+            width: 50px;
+            height: 30px;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 2px 2px 0 0 #36f;
+            margin-top: -20px;
+            margin-right: -5px;
+            float: right;
+        }
     }
 
     .change_important {
@@ -298,7 +311,7 @@ article {
 .sign_up_box {
     background-color: #fff;
     width: 250px;
-    height: 300px;
+    height: 330px;
     padding: 25px;
     padding-top: 15px;
     margin-top: 40px;
@@ -311,6 +324,18 @@ article {
 
     .form_field {
         margin-top: 5px;
+    }
+
+    input[type="submit"] {
+        background-color: #6cf;
+        width: 100px;
+        height: 30px;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 2px 2px 0 0 #36f;
+        margin-top: 10px;
+        margin-left: 50px;
     }
 }
 
@@ -318,7 +343,7 @@ article {
 .sign_in_box {
     background-color: #fff;
     width: 250px;
-    height: 250px;
+    height: 270px;
     padding: 25px;
     padding-top: 15px;
     margin-top: 40px;
@@ -331,5 +356,17 @@ article {
 
     .form_field {
         margin-top: 5px;
+    }
+
+    input[type="submit"] {
+        background-color: #6cf;
+        width: 100px;
+        height: 30px;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 2px 2px 0 0 #36f;
+        margin-top: 10px;
+        margin-left: 50px;
     }
 }
