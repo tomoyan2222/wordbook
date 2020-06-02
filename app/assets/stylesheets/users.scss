@@ -81,6 +81,42 @@ article {
     margin-right: 10px;
     margin-left: 10px;
 
+    /* user_search */
+    .user_research {
+        margin-bottom: 20px;
+        
+        input {
+            width: 300px;
+            border-radius: 10px;
+            border: solid 1px;
+            display: inline;
+        }
+    
+        select {
+            width: 200px;
+            height: 20px;
+            font-size: 12px;
+            border: none;
+            border-radius: 10px;
+            margin-top: 5px;
+        }
+    
+        .button_to {
+            background-color: #6cf;
+            width: 115px;
+            height: 20px;
+            font-size: 14px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            border: none;
+            padding-left: 10px;
+            margin-top: 5px;
+            margin-right: 10px;
+            float: right;
+        }
+    }
+
     /* profile部分 */
     .profile {
         background-color: #fff;

@@ -1,6 +1,13 @@
 <div class="display_flex">
   <%= render partial: 'users/left_nav' %>
   <article>
+    <div class="user_research">
+      <form>
+        <p>fill in user name or user_ID</p>
+        <input type="text" name="word">
+        <input type="submit" value='research now' class="button_to">
+      </form>
+    </div>
     <div class="contents">
       <%= image_tag '/user_images/ぬこ.jpg' %>
       <div class="content">
