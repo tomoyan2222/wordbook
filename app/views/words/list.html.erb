@@ -1,2 +1,44 @@
-<h1>Words#list</h1>
-<p>Find me in app/views/words/list.html.erb</p>
+<div class="display_flex">
+  <%= render partial: 'users/left_nav' %>
+  <article>
+    <div class="top_buttons">
+      <button class="hide">En hide/unhide</button>
+      <button class="hide">Ja hide/unhide</button>
+    </div>
+    <div class="word_list">
+    <% # 登録の際は文字数nで改行を挟む %>
+      <p>understand</p>
+      <p>サンプル意味</p>
+      <div class="btns">
+        <a href="#"><button class="edit_btn">edit</button></a>
+        <a href="#"><button class="del_btn">delete</button></a>
+      </div>
+    </div>
+    <div class="word_list">
+      <p>sampleword-sampleword-sampleword</p>
+      <p>サンプルサンプルサンプルサンプルサンプル意味</p>
+      <div class="btns">
+        <a href="#"><button class="edit_btn">edit</button></a>
+        <a href="#"><button class="del_btn">delete</button></a>
+      </div>
+    </div>
+    <div class="word_list">
+      <p>sskjdnfjrealravnujaeirvlndjklvnnjvkdflan</p>
+      <p>サンプルサンプルサンプルサンプルサンプル意味</p>
+      <div class="btns">
+        <a href="#"><button class="edit_btn">edit</button></a>
+        <a href="#"><button class="del_btn">delete</button></a>
+      </div>
+    </div>
+    <div class="word_list">
+      <p>sskjdnfjreal<br>ravnujaeirv<br>lndjklvnnjvkdflan</p>
+      <p>サンプルサンプルサンプルサンプルサンプル意味</p>
+      <div class="btns">
+        <a href="#"><button class="edit_btn">edit</button></a>
+        <a href="#"><button class="del_btn">delete</button></a>
+      </div>
+    </div>
+    <a href="#"><button class="add_btn">add word</button></a>
+  </article>
+  <%= render partial: 'users/right_aside' %>
+</div>

@@ -1,3 +1,68 @@
 // Place all the styles related to the words controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.top_buttons {
+    margin-top: 10px;
+
+    .hide {
+        width: 140px;
+        height: 20px;
+        font-size: 14px;
+        line-height: 12px;
+        border: none;
+        border-radius: 10px;
+    }
+
+    .hide + .hide {
+        margin-left: 20px;
+    }
+}
+
+.word_list {
+    background-color: #eee;
+    padding: 5px;
+    margin: 10px 10px 0 0;
+    display: flex;
+
+    p {
+        width: 160px;
+        margin: 0 10px;
+        display: block;
+    }
+    
+    .btns {
+        margin-left: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+
+        .edit_btn {
+            background-color: #6cf;
+            width: 35px;
+            height: 20px;
+            font-size: 12px;
+            color: rgb(245, 255, 190);
+            line-height: 12px;
+            border: none;
+            border-radius: 10px;
+            padding-left: 5px;
+        }
+
+        .del_btn {
+            background-color: #6cf;
+            width: 50px;
+            height: 20px;
+            font-size: 12px;
+            font-size: 12px;
+            color: rgb(245, 255, 190);
+            line-height: 12px;
+            border: none;
+            border-radius: 10px;
+            padding-left: 7px;
+        }
+    }
+}
+
+.add_btn {
+    margin-top: 10px;
+}
