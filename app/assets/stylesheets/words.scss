@@ -98,3 +98,24 @@
 .add_btn {
     margin-top: 10px;
 }
+
+.add_word {
+    margin-top: 20px;
+
+    .form_field {
+
+        input {
+            width: 200px;
+        }
+    }
+
+    .form_field + .form_field {
+        margin-left: 20px;
+    }
+
+    input[type="submit"] {
+        margin-top: 10px;
+        margin-right: 43px;
+        float: right;
+    }
+}
