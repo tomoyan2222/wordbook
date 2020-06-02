@@ -2,27 +2,29 @@
   <%= render partial: 'users/left_nav' %>
   <article>
     <div class="word_research">
-      <p>fill in your own word search</p>
-      <input type="text" name="word">
-      <div class="form_field">
-        <label>category</select>
-        <select>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-      </div>
-      <div class="form_field">
-        <label>order_by</select>
-        <select>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-      </div>
-      <a href="#"><button>research now</button></a>
+      <form>
+        <p>fill in your own word search</p>
+        <input type="text" name="word">
+        <div class="form_field">
+          <label>category</select>
+          <select name="category">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="form_field">
+          <label>order_by</select>
+          <select name="turn">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <input type="submit" value='research now' class="button_to">
+      </form>
     </div>
     <div class="contents">
       <%= image_tag '/user_images/ぬこ.jpg' %>

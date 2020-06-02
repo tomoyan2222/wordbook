@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'words/add/:id', to:'words#add'
   get 'words/edit/:id', to:'words#edit'
   get 'words/search', to:'words#search'
+  get 'words/search/result', to:'words#search'
+  
 
   #user一覧
   get '/', to:'users#top'
