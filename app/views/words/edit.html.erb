@@ -1,0 +1,23 @@
+<div class="display_flex">
+  <%= render partial: 'users/left_nav' %>
+  <article>
+    <h1>【edit a word】</h1>
+    <div class="add_word">
+        <form>
+            <div class="display_flex">
+                <div class="form_field">  
+                    <label>word</label>
+                    <input type="text" name="name" value="">
+                </div>
+                <div class="form_field">
+                <% #改行入れる %>
+                    <label>meaning</label>
+                    <input type="text" name="original_name" value="">
+                </div>
+            </div>
+            <input type="submit" value="regist">
+        </form>
+    </div>
+  </article>
+  <%= render partial: 'users/right_aside' %>
+</div>
