@@ -25,8 +25,8 @@
         </div>
       <% end %>
       <ul>
-        <li><a href="#">ログイン</a></li>
-        <li><a href="#">新規登録</a></li>
+        <li><%= link_to 'ログイン', sign_in_path %></li>
+        <li><%= link_to '新規登録', sign_up_path %></li>
         <% if current_user.present? %>
           <li><%= link_to 'サインアウト', sign_out_path %></li>
         <% end %>
