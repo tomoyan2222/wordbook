@@ -1,22 +1,22 @@
 <div class="sign_up_box">
     <h1>新規登録する</h1>
-    <form>
+    <%= form_with url: sign_up_path do |f| %>
         <div class="form_field">
-            <label>what&prime;s your name?</label>
-            <input type="text" name="name">
+            <%= f.label "what's your name?" %>
+            <%= f.text_field :name %>
         </div>
         <div class="form_field">
-            <label>create your ID</label>
-            <input type="text" name="original_name" placeholder="sample1234">
+            <%= f.label "make your original_ID" %>
+            <%= f.text_field :original_name, placeholder:"sample1234" %>
         </div>
         <div class="form_field">
-            <label>your password</label>
-            <input type="password" name="password">
+            <%= f.label "make your password" %>
+            <%= f.password_field :password %>
         </div>
         <div class="form_field">
-            <label>confirm password</label>
-            <input type="password" name="password_confirmation">
+            <%= f.label "password again" %>
+            <%= f.password_field :password_confirmation %>
         </div>
-        <input type="submit" value="新規登録">
-    </form>
+        <%= f.submit "新規登録" %>
+    <% end %>
 </div>
