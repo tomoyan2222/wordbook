@@ -19,6 +19,11 @@
       <a href="#">
         <div class="btn">単語帳を作る</div>
       </a>
+      <% if current_user.present? %>
+        <div class="current_user">
+          <p>user: <%= current_user.name %>さん</p>
+        </div>
+      <% end %>
       <ul>
         <a href="#"><li>ログイン</li></a>
         <a href="#"><li>新規登録</li></a>

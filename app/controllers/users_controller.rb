@@ -12,7 +12,8 @@ class UsersController < ApplicationController
   def sign_up_process
     @user = User.new(user_params)
     if @user.save
-      redirect_to top_path
+      user_sign_in(@user)
+      redirect_to top_path, notice: "Hi, #{current_user.name}さん" 
     else
       flash[:danger] = 'エラーです。'
       redirect_to sign_up_path
@@ -26,9 +27,10 @@ class UsersController < ApplicationController
   def sign_in_process
     user = User.find_by(original_name: user_params[:original_name])
     if user
-      redirect_to top_path
+      user_sign_in(user)
+      redirect_to top_path, notice: "welcome back #{current_user.name}さん"
     else
-      flash[:danger] = "ログインに失敗しました。"
+      flash[:danger] = "failed to log in..."
       redirect_to sign_in_path
     end
   end
