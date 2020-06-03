@@ -1,18 +1,17 @@
+<% flash.each do |type, message| %>
+    <div class="<%= type %>"><p><%= message %></p></div>
+<% end %>
 <div class="sign_in_box">
     <h1>ログインする</h1>
-    <form>
-    <div class="form_field">
-        <label>your name</label>
-        <input type="text" name="name">
-    </div>
-    <div class="form_field">
-        <label>your ID</label>
-        <input type="text" name="original_name">
-    </div>
-    <div class="form_field">
-        <label>your password</label>
-        <input type="password" name="password">
-    </div>
-    <input type="submit" value="ログイン">
-    </form>
+    <%= form_with url: sign_in_path do |f| %>
+        <div class="form_field">
+            <%= f.label "fill in your original id" %>
+            <%= f.text_field :original_name %>
+        </div>
+        <div class="form_field">
+            <%= f.label "fill in your password" %>
+            <%= f.password_field :password %>
+        </div>
+        <%= f.submit "ログイン" %>
+    <% end %>
 </div>

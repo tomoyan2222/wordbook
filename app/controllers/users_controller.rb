@@ -20,6 +20,17 @@ class UsersController < ApplicationController
   end
 
   def sign_in
+    @user = User.new
+  end
+
+  def sign_in_process
+    user = User.find_by(original_name: user_params[:original_name])
+    if user
+      redirect_to top_path
+    else
+      flash[:danger] = "ログインに失敗しました。"
+      redirect_to sign_in_path
+    end
   end
 
   def profile
