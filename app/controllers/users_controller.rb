@@ -10,11 +10,11 @@ class UsersController < ApplicationController
   end
 
   def sign_up_process
-    user = User.new(user_params)
-    if user.save
+    @user = User.new(user_params)
+    if @user.save
       redirect_to top_path
     else
-      redirect_to sign_up_path
+      render :sign_up
     end
   end
 
