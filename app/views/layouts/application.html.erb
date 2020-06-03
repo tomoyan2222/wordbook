@@ -25,10 +25,11 @@
         </div>
       <% end %>
       <ul>
-        <a href="#"><li>ログイン</li></a>
-        <a href="#"><li>新規登録</li></a>
-        <%# サインインしてる場合 %>
-        <a href="#"><li>サインアウト</li></a>
+        <li><a href="#">ログイン</a></li>
+        <li><a href="#">新規登録</a></li>
+        <% if current_user.present? %>
+          <li><%= link_to 'サインアウト', sign_out_path %></li>
+        <% end %>
       </ul>
     </header>
     

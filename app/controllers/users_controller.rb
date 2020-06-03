@@ -35,6 +35,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def sign_out
+    user_sign_out
+    redirect_to top_path
+  end
+
   def profile
   end
 
