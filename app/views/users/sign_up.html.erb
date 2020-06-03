@@ -1,5 +1,5 @@
-<% if @user.errors.any? %>
-    <p>エラーです。</p>
+<% flash.each do |type, message| %>
+    <div class="<%= type %>"><p><%= message %></p></div>
 <% end %>
 <div class="sign_up_box">
     <h1>新規登録する</h1>

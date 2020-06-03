@@ -14,7 +14,8 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to top_path
     else
-      render :sign_up
+      flash[:danger] = 'エラーです。'
+      redirect_to sign_up_path
     end
   end
 
