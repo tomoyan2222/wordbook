@@ -1,10 +1,18 @@
 <nav>
   <h2>menus</h2>
   <ul>
-    <li><%= link_to 'My profile', profile_path(current_user.id) %></li>
-    <a href="#"><li>My follows</li></a>
-    <a href="#"><li>My followers</li></a>
-    <a href="#"><li>My wordbooks</li></a>
-    <a href="#"><li>My bookmarks</li></a>
+    <% if current_user.present? %>
+      <li><%= link_to 'My profile', profile_path(current_user.id) %></li>
+      <a href="#"><li>My follows</li></a>
+      <a href="#"><li>My followers</li></a>
+      <a href="#"><li>My wordbooks</li></a>
+      <a href="#"><li>My bookmarks</li></a>
+    <% else %>
+      <a href="#"><li>My follows</li></a>
+      <a href="#"><li>My follows</li></a>
+      <a href="#"><li>My followers</li></a>
+      <a href="#"><li>My wordbooks</li></a>
+      <a href="#"><li>My bookmarks</li></a>
+    <% end %>
   </ul>
 </nav>

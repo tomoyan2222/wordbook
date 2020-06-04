@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   def sign_in_process
     user = User.find_by(original_name: user_params[:original_name])
-    if user
+    if user.authenticate(params[:password])
       user_sign_in(user)
       redirect_to top_path, notice: "welcome back #{current_user.name}さん"
     else
