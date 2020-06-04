@@ -26,6 +26,7 @@
       <% end %>
       <ul>
         <% if current_user.present? %>
+          <li><%= link_to 'パスワード変更', important_path %></li>
           <li><%= link_to 'サインアウト', sign_out_path %></li>
         <% else %>
           <li><%= link_to 'ログイン', sign_in_path %></li>
