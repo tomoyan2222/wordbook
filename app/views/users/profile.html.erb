@@ -2,15 +2,15 @@
   <%= render partial: 'users/left_nav' %>
   <article>
     <div class="profile">
-        <%= image_tag '/user_images/ぬこ.jpg' %>
+        <%= image_tag image_url(@user) %>
         <table>
             <tr>
                 <th>name:</th>
-                <td>　<a href="#">サンプルさん</a></td>
+                <td>　<a href="#"><%= @user.name %></a></td>
             </tr>
             <tr>
                 <th>user_ID:</th>
-                <td>　<a href="#">sample1234</a></td>
+                <td>　<a href="#"><%= @user.original_name %></a></td>
             </tr>
             <tr> 
                 <th>wordbooks:</th>

@@ -14,4 +14,12 @@ module UsersHelper
             @current_user
         end
     end
+
+    def image_url(user)
+        if user.image.blank?
+            "https://dummyimage.com/200x200/000/fff"
+        else
+            "/user_images/#{user.image}"
+        end
+    end
 end

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/sign_out', to:'users#sign_out', as: :sign_out
   post '/sign_up', to:'users#sign_up_process'
   get '/users/search', to:'users#search'
-  get '/users/profile/:id', to:'users#profile'
+  get '/users/profile/:id', to:'users#profile', as: :profile
   get '/users/follow/:id', to:'users#follow'
   get '/users/follower/:id', to:'users#follower'
   get '/users/word/:id', to:'users#word'
