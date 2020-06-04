@@ -85,6 +85,18 @@ class UsersController < ApplicationController
   end
 
   def important
+    @user = User.find(current_user.id)
+  end
+  
+  def change_pass
+    @user = User.find(current_user.id)
+    if @user.authenticate(params[:current_password])
+      if @user.update(password: params[:password], password_confirmation: params[:password_confirmation])
+        redirect_to top_path, notice: 'password is updated'
+      else
+        render 'important'
+      end
+    end
   end
 
   private

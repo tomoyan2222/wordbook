@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   get '/users/likes/:id', to:'users#likes'
   get '/users/edit', to:'users#edit', as: :profile_edit
   post '/users/edit', to:'users#update'
-  get '/users/important', to:'users#important'
+  get '/users/important', to:'users#important', as: :important
+  post '/users/important', to:'users#change_pass'
 end

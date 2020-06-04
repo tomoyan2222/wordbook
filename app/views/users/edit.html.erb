@@ -1,5 +1,5 @@
 <% @user.errors.full_messages.each do |message| %>
-    <div class="alert danger"><%= message %></div>
+    <div class="danger"><%= message %></div>
 <% end %>
 <div class="display_flex">
   <%= render partial: 'users/left_nav' %>
