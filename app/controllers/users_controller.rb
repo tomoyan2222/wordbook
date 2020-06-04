@@ -56,6 +56,31 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(current_user.id)
+  end
+
+  def update
+    @user = User.find(current_user.id)
+    upload_file = params[:image]
+    if upload_file.present?
+      upload_file_name = upload_file.original_filename
+      output_dir = Rails.root.join('public', 'user_images')
+      output_path = output_dir + upload_file_name
+      File.open(output_path, 'w+b') do |f|
+        f.write(upload_file.read)
+      end
+      if @user.update(user_params.merge(image: upload_file_name))
+        redirect_to top_path, notice: 'profiles are updated'
+      else
+        render 'edit'
+      end
+    else
+      if @user.update(user_params)
+        redirect_to top_path, notice: 'profiles are updated'
+      else
+        render 'edit'
+      end
+    end
   end
 
   def important
@@ -63,7 +88,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.permit(:name, :original_name, :password, :password_confirmation)
+    params.permit(:name, :original_name, :password, :password_confirmation, :profile)
   end
   
 end

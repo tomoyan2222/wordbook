@@ -25,10 +25,11 @@
         </div>
       <% end %>
       <ul>
-        <li><%= link_to 'ログイン', sign_in_path %></li>
-        <li><%= link_to '新規登録', sign_up_path %></li>
         <% if current_user.present? %>
           <li><%= link_to 'サインアウト', sign_out_path %></li>
+        <% else %>
+          <li><%= link_to 'ログイン', sign_in_path %></li>
+          <li><%= link_to '新規登録', sign_up_path %></li>
         <% end %>
       </ul>
     </header>

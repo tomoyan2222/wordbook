@@ -1,31 +1,30 @@
+<% @user.errors.full_messages.each do |message| %>
+    <div class="alert danger"><%= message %></div>
+<% end %>
 <div class="display_flex">
   <%= render partial: 'users/left_nav' %>
   <article>
   <div class="change_profile">
     <h1>【change your profiles】</h1>
-    <form>
+    <%= form_with url: profile_edit_path, method: :post, local: true do |f| %>
         <div class="form_field">  
-            <label>name</label>
-            <input type="text" name="name" value="">
+            <%= f.label :name %>
+            <%= f.text_field :name, value:"" %>
         </div>
         <div class="form_field">
-            <label>user_ID</label>
-            <input type="text" name="original_name" value="">
+            <%= f.label :original_name, 'user_ID' %>
+            <%= f.text_field :original_name, value:"" %>
         </div>
         <div class="form_field">
-            <label>my job</label>
-            <input type="text" name="job" value="">
+            <%= f.label :image %>
+            <%= f.file_field :image, value:"" %>
         </div>
         <div class="form_field">
-            <label>image</label>
-            <input type="file" name="image"> 
+            <%= f.label :profile, 'profile' %>
+            <%= f.text_area :profile, value:"" %> 
         </div>
-        <div class="form_field">
-            <label>profile</label>
-            <textarea></textarea>
-        </div>
-        <input type="submit">
-        </form>
+        <%= f.submit "send" %>
+    <% end %>
     </div>
   </article>
   <%= render partial: 'users/right_aside' %>
