@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   #word一覧
-  get 'words/list/:id', to:'words#list'
-  get 'words/create', to:'words#create'
+  get 'words/list/:id', to:'words#list', as: :list
+  get 'words/create', to:'words#create', as: :create
+  post 'words/create', to:'words#create_title'
   get 'words/add/:id', to:'words#add'
   get 'words/edit/:id', to:'words#edit'
   get 'words/search', to:'words#search'

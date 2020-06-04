@@ -17,7 +17,9 @@
         <p>単語帳共有サービス</p>
       </div>
       <a href="#">
-        <div class="btn">単語帳を作る</div>
+        <%= link_to create_path do %>
+          <div class="btn">単語帳を作る</div>
+        <% end %>
       </a>
       <% if current_user.present? %>
         <div class="current_user">

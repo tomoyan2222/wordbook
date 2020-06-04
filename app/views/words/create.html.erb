@@ -1,27 +1,25 @@
+<% @title.errors.full_messages.each do |message| %>
+    <div class="danger"><%= message %></div>
+<% end %>
 <div class="display_flex">
   <%= render partial: 'users/left_nav' %>
   <article>
     <h1>【create a wordbook】</h1>
     <div class="add_word">
-        <form>
+        <%= form_with url: create_path, model: @title, local: true do |f| %>
             <div class="display_flex">
                 <div class="form_field">  
-                    <label>title</label>
-                    <input type="text" name="name" value="">
+                    <%= f.label :name %>
+                    <%= f.text_field :name %>
                 </div>
                 <div class="form_field">
                 <% #改行入れる %>
-                    <label>category</label>
-                    <select name="original_name">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
+                    <%= f.label :category %>
+                    <%= f.collection_select :category, Category.all, :id, :name %>
                 </div>
             </div>
-            <input type="submit" value="regist">
-        </form>
+            <%= f.submit "regist" %>
+        <% end %>
     </div>
   </article>
   <%= render partial: 'users/right_aside' %>
