@@ -1,22 +1,27 @@
+<% flash.each do |type, message| %>
+    <div class="alert <%= type %>"><%= message %></div>
+<% end %>
 <div class="display_flex">
   <%= render partial: 'users/left_nav' %>
   <article>
     <h1>【add a word】</h1>
+    <p class="to_title">to <%= link_to "#{@title.name}", list_path(@title.id) %></p>
     <div class="add_word">
-        <form>
-            <div class="display_flex">
-                <div class="form_field">  
-                    <label>word</label>
-                    <input type="text" name="name" value="">
-                </div>
-                <div class="form_field">
-                <% #改行入れる %>
-                    <label>meaning</label>
-                    <input type="text" name="original_name" value="">
-                </div>
-            </div>
-            <input type="submit" value="regist">
-        </form>
+      <%= form_with model: @vocabulary, url: add_path, local: true do |f| %>
+        <%= f.hidden_field :title_id, :value => @title.id %>
+        <div class="display_flex">
+          <div class="form_field">  
+            <%= f.label :word %>
+            <%= f.text_field :word %>
+          </div>
+          <div class="form_field">
+          <% #改行入れる %>
+            <%= f.label :meaning %>
+            <%= f.text_field :meaning %>
+          </div>
+        </div>
+        <%= f.submit "regist" %>
+      <% end %>
     </div>
   </article>
   <%= render partial: 'users/right_aside' %>

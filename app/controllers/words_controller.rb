@@ -21,6 +21,18 @@ class WordsController < ApplicationController
   end
 
   def add
+    @title = Title.find(params[:id])
+    @vocabulary = Vocabulary.new
+  end
+
+  def add_word
+    @vocabulary = Vocabulary.new(word: word_params[:word], meaning: word_params[:meaning], title_id: params[:vocabulary][:title_id])
+    if @vocabulary.save
+      redirect_to list_path(params[:vocabulary][:title_id])
+    else
+      flash[:danger] = "failed to regist... try again"
+      redirect_to add_path(params[:vocabulary][:title_id])
+    end
   end
 
   def edit
@@ -29,5 +41,9 @@ class WordsController < ApplicationController
   private
   def title_params
     params.require(:title).permit(:name, :category)
+  end
+
+  def word_params
+    params.require(:vocabulary).permit(:word, :meaning)
   end
 end
