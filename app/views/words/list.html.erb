@@ -34,6 +34,14 @@
     <%= link_to add_path(@title.id) do %>
       <button class="add_btn">add word</button>
     <% end %>
+    <% if @title.user_id == current_user.id %>
+      <%= link_to edit_wordbooks_path(@title.id) do %>
+        <button>edit</button>
+      <% end %>
+      <%= link_to delete_wordbooks_path(@title.id) do %>
+        <button>delete</button>
+      <% end %>
+    <% end %>
   </article>
   <%= render partial: 'users/right_aside' %>
 </div>
