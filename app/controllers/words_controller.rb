@@ -68,11 +68,23 @@ class WordsController < ApplicationController
   end
 
   def update_wordbook
+    titles = Title.find(params[:title][:title_id])
+    if titles.update(name: title_params[:name], category_id: title_params[:category])
+      redirect_to list_path(params[:title][:title_id])
+    else
+      if title_params[:name].empty?
+        flash[:danger] = "name can't be blank. \n"
+      end
+      if flash[:danger].blank?
+        flash[:danger] = "failed to update. try again."
+      end
+      redirect_to edit_wordbook_path(params[:title][:title_id])
+    end
   end
 
   private
   def title_params
-    params.require(:title).permit(:name, :category)
+    params.require(:title).permit(:name, :category, :title_id)
   end
 
   def word_params
