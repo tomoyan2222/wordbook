@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'words/edit/:id', to:'words#edit', as: :edit
   post 'words/edit/:id', to:'words#edit_word'
   get 'words/delete/:id', to:'words#destroy', as: :delete
+  get 'words/list/edit/:id', to:'words#edit_wordbook', as: :edit_wordbook
+  get 'words/list/delete/:id', to:'words#destroy_wordbook', as: :destroy_wordbook
   get 'words/search', to:'words#search', as: :word_search
   
 

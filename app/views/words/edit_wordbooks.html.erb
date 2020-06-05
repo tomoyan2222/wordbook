@@ -1,0 +1,26 @@
+<% @title.errors.full_messages.each do |message| %>
+    <div class="danger"><%= message %></div>
+<% end %>
+<div class="display_flex">
+  <%= render partial: 'users/left_nav' %>
+  <article>
+    <h1>【create a wordbook】</h1>
+    <div class="add_word">
+        <%= form_with url: create_path, model: @title, local: true do |f| %>
+            <div class="display_flex">
+                <div class="form_field">  
+                    <%= f.label :name %>
+                    <%= f.text_field :name %>
+                </div>
+                <div class="form_field">
+                <% #改行入れる %>
+                    <%= f.label :category %>
+                    <%= f.collection_select :category, Category.all, :id, :name %>
+                </div>
+            </div>
+            <%= f.submit "regist" %>
+        <% end %>
+    </div>
+  </article>
+  <%= render partial: 'users/right_aside' %>
+</div>
