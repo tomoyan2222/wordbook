@@ -37,6 +37,18 @@ class WordsController < ApplicationController
   end
 
   def edit
+    @vocabulary = Vocabulary.new
+    @word = Vocabulary.find(params[:id])
+    @title = Title.find(@word.id)
+  end
+
+  def edit_word
+    @vocabulary = Vocabulary.find(params[:vocabulary][:vocabulary_id])
+    if @vocabulary.update(word: word_params[:word], meaning: word_params[:meaning])
+      redirect_to list_path(params[:vocabulary][:vocabulary_id])
+    else
+      redirect_to edit_word_path(params[:vocabulary][:vocabulary_id])
+    end
   end
 
   private

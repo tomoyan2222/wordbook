@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   post 'words/create', to:'words#create_title'
   get 'words/add/:id', to:'words#add', as: :add
   post 'words/add/:id', to:'words#add_word'
-  get 'words/edit/:id', to:'words#edit'
+  get 'words/edit/:id', to:'words#edit', as: :edit
+  post 'words/edit/:id', to:'words#edit_word'
   get 'words/search', to:'words#search', as: :word_search
   
 

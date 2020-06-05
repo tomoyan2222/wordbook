@@ -2,21 +2,22 @@
   <%= render partial: 'users/left_nav' %>
   <article>
     <h1>【edit a word】</h1>
+    <p class="to_title">to <%= link_to "#{@title.name}", list_path(@title.id) %></p>
     <div class="add_word">
-        <form>
+        <%= form_with model: @vocabulary, url: edit_path, local: true do |f| %>
+            <%= f.hidden_field :vocabulary_id, value: @word.id %>
             <div class="display_flex">
                 <div class="form_field">  
-                    <label>word</label>
-                    <input type="text" name="name" value="">
+                    <%= f.label :word %>
+                    <%= f.text_field :word, value:"#{@word.word}" %>
                 </div>
                 <div class="form_field">
-                <% #改行入れる %>
-                    <label>meaning</label>
-                    <input type="text" name="original_name" value="">
+                    <%= f.label :meaning %>
+                    <%= f.text_field :meaning, value:"#{@word.meaning}" %>
                 </div>
             </div>
-            <input type="submit" value="regist">
-        </form>
+            <%= f.submit value:"update" %>
+        <% end %>
     </div>
   </article>
   <%= render partial: 'users/right_aside' %>
