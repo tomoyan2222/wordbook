@@ -51,6 +51,8 @@ class UsersController < ApplicationController
   end
 
   def word
+    @user = User.find(current_user.id)
+    @title = Title.where(user_id: current_user.id)
   end
 
   def likes

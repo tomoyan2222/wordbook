@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   post 'words/create', to:'words#create_title'
   get 'words/add/:id', to:'words#add'
   get 'words/edit/:id', to:'words#edit'
-  get 'words/search', to:'words#search'
-  get 'words/search/result', to:'words#search'
+  get 'words/search', to:'words#search', as: :word_search
   
 
   #user一覧
@@ -20,7 +19,7 @@ Rails.application.routes.draw do
   get '/users/profile/:id', to:'users#profile', as: :profile
   get '/users/follow/:id', to:'users#follow'
   get '/users/follower/:id', to:'users#follower'
-  get '/users/word/:id', to:'users#word'
+  get '/users/word/:id', to:'users#word', as: :user_word
   get '/users/likes/:id', to:'users#likes'
   get '/users/edit', to:'users#edit', as: :profile_edit
   post '/users/edit', to:'users#update'

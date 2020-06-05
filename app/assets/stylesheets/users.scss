@@ -276,6 +276,14 @@ article {
             margin-right: 15px;
         }
 
+        a {
+            text-decoration: none;
+        }
+
+        .title {
+            text-decoration: underline;
+        }
+
         /* user_wordのcontent 'users/word */
         .user_word {
             width: 300px;
