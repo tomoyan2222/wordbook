@@ -3,10 +3,10 @@
   <article>
     <div class="meta_data">
       <a href="#"><button>Fav</button></a>
-      <h1>【Title】</h1>
+      <h1>【<%= @title.name %>】</h1>
       <div class="display_flex">
-        <p>made by: <a href="#">user_id</a></p>
-        <p>category: <a href="#">sample</a></p>
+        <p>made by: <%= link_to "#{User.find(@title.user_id).name}", profile_path(@title.user_id) %></p>
+        <p>category: <%= Category.find(@title.category_id).name %></p>
       </div>
     </div>
     <div class="top_buttons">
@@ -22,14 +22,14 @@
         <a href="#"><button class="del_btn">delete</button></a>
       </div>
     </div>
-    <div class="word_list">
-      <p>sampleword-sampleword-sampleword</p>
-      <p>サンプルサンプルサンプルサンプルサンプル意味</p>
-      <div class="btns">
-        <a href="#"><button class="edit_btn">edit</button></a>
-        <a href="#"><button class="del_btn">delete</button></a>
+      <div class="word_list">
+        <p>sampleword-sampleword-sampleword</p>
+        <p>サンプルサンプルサンプルサンプルサンプル意味</p>
+        <div class="btns">
+          <a href="#"><button class="edit_btn">edit</button></a>
+          <a href="#"><button class="del_btn">delete</button></a>
+        </div>
       </div>
-    </div>
     <div class="word_list">
       <p>sskjdnfjrealravnujaeirvlndjklvnnjvkdflan</p>
       <p>サンプルサンプルサンプルサンプルサンプル意味</p>

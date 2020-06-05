@@ -1,5 +1,6 @@
 class WordsController < ApplicationController
   def list
+    @title = Title.find(params[:id])
   end
 
   def search
