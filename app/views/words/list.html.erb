@@ -25,7 +25,9 @@
           <%= link_to edit_path(vocabulary.id) do %>
             <button class="edit_btn">edit</button>
           <% end %>
-          <a href="#"><button class="del_btn">delete</button></a>
+          <%= link_to delete_path(vocabulary.id) do %>
+            <button class="del_btn">delete</button>
+          <% end %>
         </div>
       </div>
     <% end %>

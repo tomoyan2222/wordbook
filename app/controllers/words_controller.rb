@@ -52,6 +52,16 @@ class WordsController < ApplicationController
     end
   end
 
+  def destroy
+    vocabulary = Vocabulary.find(params[:id])
+    title = Title.find(vocabulary.title_id)
+    if vocabulary.destroy
+      redirect_to list_path(title.id)
+    else
+      redirect_to list_path(title.id), notice: 'failed to delete... try again'
+    end
+  end
+
   private
   def title_params
     params.require(:title).permit(:name, :category)

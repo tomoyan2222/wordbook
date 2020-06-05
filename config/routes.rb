@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post 'words/add/:id', to:'words#add_word'
   get 'words/edit/:id', to:'words#edit', as: :edit
   post 'words/edit/:id', to:'words#edit_word'
+  get 'words/delete/:id', to:'words#destroy', as: :delete
   get 'words/search', to:'words#search', as: :word_search
   
 
