@@ -22,7 +22,9 @@
         </div>
         <p><%= vocabulary.meaning %></p>
         <div class="btns">
-          <a href="#"><button class="edit_btn">edit</button></a>
+          <%= link_to edit_path(vocabulary.id) do %>
+            <button class="edit_btn">edit</button>
+          <% end %>
           <a href="#"><button class="del_btn">delete</button></a>
         </div>
       </div>
