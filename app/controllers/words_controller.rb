@@ -1,6 +1,7 @@
 class WordsController < ApplicationController
   def list
     @title = Title.find(params[:id])
+    @vocabulary = Vocabulary.where(title_id: @title.id)
   end
 
   def search

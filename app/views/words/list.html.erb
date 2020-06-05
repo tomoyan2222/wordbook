@@ -13,39 +13,20 @@
       <button class="hide">En hide/unhide</button>
       <button class="hide">Ja hide/unhide</button>
     </div>
-    <div class="word_list">
-    <% # 登録の際は文字数nで改行を挟む %>
-      <p>understand</p>
-      <p>サンプル意味</p>
-      <div class="btns">
-        <a href="#"><button class="edit_btn">edit</button></a>
-        <a href="#"><button class="del_btn">delete</button></a>
-      </div>
-    </div>
+    <% @vocabulary.each do |vocabulary| %>
       <div class="word_list">
-        <p>sampleword-sampleword-sampleword</p>
-        <p>サンプルサンプルサンプルサンプルサンプル意味</p>
+        <div class="en_word">
+          <% splice_word(vocabulary.word).each do |word| %>
+            <p><%= word %></p>
+          <% end %>
+        </div>
+        <p><%= vocabulary.meaning %></p>
         <div class="btns">
           <a href="#"><button class="edit_btn">edit</button></a>
           <a href="#"><button class="del_btn">delete</button></a>
         </div>
       </div>
-    <div class="word_list">
-      <p>sskjdnfjrealravnujaeirvlndjklvnnjvkdflan</p>
-      <p>サンプルサンプルサンプルサンプルサンプル意味</p>
-      <div class="btns">
-        <a href="#"><button class="edit_btn">edit</button></a>
-        <a href="#"><button class="del_btn">delete</button></a>
-      </div>
-    </div>
-    <div class="word_list">
-      <p>sskjdnfjreal<br>ravnujaeirv<br>lndjklvnnjvkdflan</p>
-      <p>サンプルサンプルサンプルサンプルサンプル意味</p>
-      <div class="btns">
-        <a href="#"><button class="edit_btn">edit</button></a>
-        <a href="#"><button class="del_btn">delete</button></a>
-      </div>
-    </div>
+    <% end %>
     <%= link_to add_path(@title.id) do %>
       <button class="add_btn">add word</button>
     <% end %>
