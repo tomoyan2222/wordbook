@@ -46,7 +46,9 @@
         <a href="#"><button class="del_btn">delete</button></a>
       </div>
     </div>
-    <a href="#"><button class="add_btn">add word</button></a>
+    <%= link_to add_path(@title.id) do %>
+      <button class="add_btn">add word</button>
+    <% end %>
   </article>
   <%= render partial: 'users/right_aside' %>
 </div>

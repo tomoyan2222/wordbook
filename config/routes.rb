@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'words/list/:id', to:'words#list', as: :list
   get 'words/create', to:'words#create', as: :create
   post 'words/create', to:'words#create_title'
-  get 'words/add/:id', to:'words#add'
+  get 'words/add/:id', to:'words#add', as: :add
   get 'words/edit/:id', to:'words#edit'
   get 'words/search', to:'words#search', as: :word_search
   
