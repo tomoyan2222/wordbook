@@ -2,8 +2,8 @@
   <%= render partial: 'users/left_nav' %>
   <article>
     <div class="meta_data">
-      <a href="#"><button>Fav</button></a>
       <h1>【<%= @title.name %>】</h1>
+      <a href="#"><button>Fav</button></a>
       <div class="display_flex">
         <p>made by: <%= link_to "#{User.find(@title.user_id).name}", profile_path(@title.user_id) %></p>
         <p>category: <%= Category.find(@title.category_id).name %></p>
@@ -31,17 +31,22 @@
         </div>
       </div>
     <% end %>
-    <%= link_to add_path(@title.id) do %>
-      <button class="add_btn">add word</button>
-    <% end %>
-    <% if @title.user_id == current_user.id %>
-      <%= link_to edit_wordbook_path(@title.id) do %>
-        <button>edit</button>
+    <div class="update_wordbook">
+      <p>wordbook updates</p>
+      <%= link_to add_path(@title.id) do %>
+        <button class="add_btn">add word</button>
       <% end %>
-      <%= link_to destroy_wordbook_path(@title.id) do %>
-        <button>delete</button>
+      <% if @title.user_id == current_user.id %>
+        <div class="edit_wordbooks">
+          <%= link_to edit_wordbook_path(@title.id) do %>
+            <button>edit</button>
+          <% end %>
+          <%= link_to destroy_wordbook_path(@title.id) do %>
+            <button>delete</button>
+          <% end %>
+        </div>
       <% end %>
-    <% end %>
+    </div>
   </article>
   <%= render partial: 'users/right_aside' %>
 </div>

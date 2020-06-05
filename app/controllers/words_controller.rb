@@ -62,6 +62,14 @@ class WordsController < ApplicationController
     end
   end
 
+  def edit_wordbook
+    @title = Title.new
+    @titles = Title.find(params[:id])
+  end
+
+  def update_wordbook
+  end
+
   private
   def title_params
     params.require(:title).permit(:name, :category)

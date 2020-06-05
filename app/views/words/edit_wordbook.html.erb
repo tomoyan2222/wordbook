@@ -1,19 +1,17 @@
-<% @title.errors.full_messages.each do |message| %>
-    <div class="danger"><%= message %></div>
-<% end %>
 <div class="display_flex">
   <%= render partial: 'users/left_nav' %>
   <article>
-    <h1>【create a wordbook】</h1>
+    <h1>【edit a wordbook】</h1>
+    <p class="to_title">on <%= link_to "#{@titles.name}", list_path(@titles.id) %></p>
     <div class="add_word">
-        <%= form_with url: create_path, model: @title, local: true do |f| %>
+        <%= form_with url: edit_wordbook_path, model: @title, local: true do |f| %>
+            <%= f.hidden_field :title_id, value: @titles.id %>
             <div class="display_flex">
                 <div class="form_field">  
                     <%= f.label :name %>
-                    <%= f.text_field :name %>
+                    <%= f.text_field :name, value:@titles.name %>
                 </div>
                 <div class="form_field">
-                <% #改行入れる %>
                     <%= f.label :category %>
                     <%= f.collection_select :category, Category.all, :id, :name %>
                 </div>
