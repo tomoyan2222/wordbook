@@ -82,6 +82,17 @@ class WordsController < ApplicationController
     end
   end
 
+  def destroy_wordbook
+    title = Title.find(params[:id])
+    if title.destroy
+      flash[:notice] = "the wordbook was deleted."
+      redirect_to user_word_path(current_user.id)
+    else
+      flash[:danger] = "failed to delete. try again."
+      redirect_to list_path(params[:id])
+    end
+  end
+
   private
   def title_params
     params.require(:title).permit(:name, :category, :title_id)

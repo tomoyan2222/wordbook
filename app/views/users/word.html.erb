@@ -1,3 +1,6 @@
+<% flash.each do |type, message| %>
+  <div class="alert <%= type %>"><%= message %></div>
+<% end %>
 <div class="display_flex">
   <%= render partial: 'left_nav' %>
   <article>
