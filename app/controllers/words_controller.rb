@@ -31,7 +31,22 @@ class WordsController < ApplicationController
     if @vocabulary.save
       redirect_to list_path(params[:vocabulary][:title_id])
     else
-      flash[:danger] = "failed to regist... try again"
+      flash[:danger] = ""
+      if word_params[:word].blank?
+        flash[:danger] << "word "
+      end
+      if word_params[:meaning].blank?
+        flash[:danger] << "meaning "
+      end
+      if flash[:danger].present?
+        flash[:danger] << "can't be blank."
+      end
+      if word_params[:word] !=~ /\A[a-zA-Z0-9]+\z/
+        flash[:danger] = "please type using half-width characters"
+      end
+      if flash[:danger].blank?
+        flash[:danger] = "failed to regist... try again"
+      end
       redirect_to add_path(params[:vocabulary][:title_id])
     end
   end
