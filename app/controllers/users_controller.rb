@@ -55,7 +55,15 @@ class UsersController < ApplicationController
     @title = Title.where(user_id: current_user.id)
   end
 
-  def likes
+  def bookmarks
+    if Bookmark.exists?(title_id: params[:id])
+      bookmark = Bookmark.find_by(title_id: params[:id])
+      bookmark.destroy
+    else
+      bookmark = Bookmark.new(user_id: current_user.id, title_id: params[:id])
+      bookmark.save
+    end
+    redirect_to list_path(params[:id])
   end
 
   def edit

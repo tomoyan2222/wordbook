@@ -6,7 +6,9 @@
   <article>
     <div class="meta_data">
       <h1>【<%= @title.name %>】</h1>
-      <a href="#"><button>Fav</button></a>
+      <%= link_to bookmark_path(@title.id) do %>
+        <button class="<% if Bookmark.exists?(title_id: @title.id) %>pink<% end %>">BM</button>
+      <% end %>
       <div class="display_flex">
         <p>made by: <%= link_to "#{User.find(@title.user_id).name}", profile_path(@title.user_id) %></p>
         <p>category: <%= Category.find(@title.category_id).name %></p>
