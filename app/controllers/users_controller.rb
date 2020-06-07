@@ -55,6 +55,10 @@ class UsersController < ApplicationController
     @title = Title.where(user_id: current_user.id)
   end
 
+  def likes
+    @bookmarks = Bookmark.where(user_id: current_user.id)
+  end
+
   def bookmarks
     if Bookmark.exists?(title_id: params[:id])
       bookmark = Bookmark.find_by(title_id: params[:id])

@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/users/follow/:id', to:'users#follow'
   get '/users/follower/:id', to:'users#follower'
   get '/users/word/:id', to:'users#word', as: :user_word
+  get '/users/likes/:id', to:'users#likes', as: :likes
   get '/users/bookmarks/:id', to:'users#bookmarks', as: :bookmark
   get '/users/edit', to:'users#edit', as: :profile_edit
   post '/users/edit', to:'users#update'

@@ -6,7 +6,7 @@
       <a href="#"><li>My follows</li></a>
       <a href="#"><li>My followers</li></a>
       <li><%= link_to "My wordbooks", user_word_path(current_user.id) %></li>
-      <a href="#"><li>My bookmarks</li></a>
+      <li><%= link_to "My bookmarks", likes_path(current_user.id) %></li>
     <% else %>
       <a href="#"><li>My follows</li></a>
       <a href="#"><li>My follows</li></a>

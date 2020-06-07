@@ -1,26 +1,21 @@
 <div class="display_flex">
   <%= render partial: 'users/left_nav' %>
   <article>
-    <div class="contents">
-      <%= image_tag '/user_images/ぬこ.jpg' %>
-      <div class="wordbook">
-        <h1>title:<a href="#">サンプルタイトル</a></h1>
-        <p>category:<a href="#">サンプルカテゴリー</a></p>
-        <p>made by:<a href="#">サンプルマン</a></p>
-        <p>created:2020/6/1,13:21</p>
-        <button>Fav</button>
-      </div>
-    </div>
-    <div class="contents">
-      <%= image_tag '/user_images/ぬこ.jpg' %>
-      <div class="wordbook">
-        <h1>title:<a href="#">サンプルタイトル</a></h1>
-        <p>category:<a href="#">サンプルカテゴリー</a></p>
-        <p>made by:<a href="#">サンプルマン</a></p>
-        <p>created:2020/6/1,13:21</p>
-        <button>Fav</button>
-      </div>
-    </div>
+        <% if @bookmarks.present? %>
+          <% @bookmarks.each do |bookmark| %>
+            <div class="contents">
+              <%= image_tag image_url(User.find(bookmark.user_id)) %>
+              <div class="wordbook">
+                <h1 class="title"><%= link_to "title: #{Title.find(bookmark.title_id).name}", list_path(Title.find(bookmark.title_id).id) %></h1>
+                <p>category: <%= Category.find(Title.find(bookmark.title_id).category_id).name %></p>
+                <p>made by: <%= User.find(bookmark.user_id).name %></p>
+                <p>created:2020/6/1,13:21</p>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <p>you have not bookmarked yet.</p>
+        <% end %>
   </article>
   <%= render partial: 'users/right_aside' %>
 </div>
