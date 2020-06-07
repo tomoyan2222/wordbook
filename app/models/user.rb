@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_many :titles
+    has_many :titles, through: :bookmarks
     
     has_secure_password
 
