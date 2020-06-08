@@ -50,6 +50,9 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find(params[:id])
+    @title = Title.where(user_id: @user.id).length
+    @follow = Follow.where(user_id: @user.id).length
+    @follower = Follow.where(follow_user_id: @user.id).length
   end
 
   def follow

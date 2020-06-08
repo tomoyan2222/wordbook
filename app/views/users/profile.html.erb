@@ -13,30 +13,30 @@
         <table>
             <tr>
                 <th>name:</th>
-                <td>　<a href="#"><%= @user.name %></a></td>
+                <td>　<a href="#"><%= @user.name %></td>
             </tr>
             <tr>
                 <th>user_ID:</th>
-                <td>　<a href="#"><%= @user.original_name %></a></td>
+                <td>　<%= @user.original_name %></td>
             </tr>
             <tr> 
                 <th>wordbooks:</th>
-                <td>　<a href="#">10個</a></td>
+                <td>　<%= @title %>個</td>
             </tr>
             <tr>
                 <th>follows:</th>
-                <td>　<a href="#">10人</a></td>
+                <td>　<%= @follow %>人</td>
             </tr>
             <tr>
                 <th>followers:</th>
-                <td>　<a href="#">10人</a></td>
+                <td>　<%= @follower %>人</td>
             </tr>
         </table>
         <div class="btn">
             <a href="#"><button class="btn_a">follow</button></a>
             <a href="#"><button class="btn_a">go to wordbooks</button></a>
         </div>
-        <p>サンプルプロフィールです。</p>
+        <p><%= @user.profile %></p>
     </div>
   </article>
   <%= render partial: 'users/right_aside' %>
