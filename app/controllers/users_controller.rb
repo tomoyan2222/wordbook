@@ -61,6 +61,12 @@ class UsersController < ApplicationController
     redirect_back(fallback_location: follow_path(current_user.id))
   end
 
+  def unfollow
+    follow = Follow.find(params[:id])
+    follow.destroy
+    redirect_back(fallback_location: follow_path(current_user.id))
+  end
+  
   def follower
   end
 
