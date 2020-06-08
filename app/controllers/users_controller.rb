@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  def top
+  def top 
   end
 
   def search
