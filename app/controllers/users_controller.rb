@@ -52,6 +52,7 @@ class UsersController < ApplicationController
   end
 
   def follow
+    @follows = Follow.where(user_id: current_user.id)
   end
 
   def follow_process

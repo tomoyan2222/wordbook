@@ -3,7 +3,7 @@
   <ul>
     <% if current_user.present? %>
       <li><%= link_to 'My profile', profile_path(current_user.id) %></li>
-      <a href="#"><li>My follows</li></a>
+      <li><%= link_to "My follows", follow_path(current_user.id) %></li>
       <a href="#"><li>My followers</li></a>
       <li><%= link_to "My wordbooks", user_word_path(current_user.id) %></li>
       <li><%= link_to "My bookmarks", likes_path(current_user.id) %></li>

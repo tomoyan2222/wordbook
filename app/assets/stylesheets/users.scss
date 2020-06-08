@@ -80,7 +80,7 @@ article {
     margin-top: 30px;
     margin-right: 10px;
     margin-left: 10px;
-    
+
     /* user_search */
     .user_research {
         margin-bottom: 20px;
@@ -345,6 +345,12 @@ article {
                 margin-top: -10px;
                 margin-right: 4px;
                 float: right;
+            }
+
+            .unfollow {
+                width: 70px;
+                background-color: #ffc0cb;
+                box-shadow: 1px 2px 1px 0 #ff808b;
             }
         }
 

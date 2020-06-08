@@ -21,10 +21,11 @@ Rails.application.routes.draw do
   get '/sign_up', to:'users#sign_up', as: :sign_up
   get '/sign_out', to:'users#sign_out', as: :sign_out
   post '/sign_up', to:'users#sign_up_process'
-  get '/users/search', to:'users#search'
+  get '/users/search', to:'users#search', as: :user_search
   get '/users/profile/:id', to:'users#profile', as: :profile
   get '/users/follow/:id', to:'users#follow', as: :follow
   get '/users/follow/send/:id', to:'users#follow_process', as: :follow_process
+  get '/users/follow/unfollow/:id', to:'users#unfollow', as: :unfollow
   get '/users/follower/:id', to:'users#follower'
   get '/users/word/:id', to:'users#word', as: :user_word
   get '/users/likes/:id', to:'users#likes', as: :likes
