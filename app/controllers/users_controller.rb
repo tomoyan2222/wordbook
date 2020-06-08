@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def top 
+    @titles = Title.all.order(created_at: :desc)
   end
 
   def search
