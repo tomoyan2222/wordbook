@@ -68,6 +68,7 @@ class UsersController < ApplicationController
   end
   
   def follower
+    @followers = Follow.where(follow_user_id: current_user.id)
   end
 
   def word

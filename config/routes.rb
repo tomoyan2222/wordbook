@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get '/users/follow/:id', to:'users#follow', as: :follow
   get '/users/follow/send/:id', to:'users#follow_process', as: :follow_process
   get '/users/follow/unfollow/:id', to:'users#unfollow', as: :unfollow
-  get '/users/follower/:id', to:'users#follower'
+  get '/users/follower/:id', to:'users#follower', as: :follower
   get '/users/word/:id', to:'users#word', as: :user_word
   get '/users/likes/:id', to:'users#likes', as: :likes
   get '/users/bookmarks/:id', to:'users#bookmarks', as: :bookmark
