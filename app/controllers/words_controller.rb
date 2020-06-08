@@ -44,6 +44,9 @@ class WordsController < ApplicationController
       if word_params[:word] !=~ /\A[a-zA-Z0-9]+\z/
         flash[:danger] = "please type using half-width characters"
       end
+      if word_params[:word].length > 74
+        flash[:danger] = "up to 75 characters"
+      end
       if flash[:danger].blank?
         flash[:danger] = "failed to regist... try again"
       end
