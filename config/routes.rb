@@ -23,7 +23,8 @@ Rails.application.routes.draw do
   post '/sign_up', to:'users#sign_up_process'
   get '/users/search', to:'users#search'
   get '/users/profile/:id', to:'users#profile', as: :profile
-  get '/users/follow/:id', to:'users#follow'
+  get '/users/follow/:id', to:'users#follow', as: :follow
+  get '/users/follow/send/:id', to:'users#follow_process', as: :follow_process
   get '/users/follower/:id', to:'users#follower'
   get '/users/word/:id', to:'users#word', as: :user_word
   get '/users/likes/:id', to:'users#likes', as: :likes

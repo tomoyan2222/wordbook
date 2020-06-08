@@ -3,6 +3,13 @@ class UsersController < ApplicationController
   end
 
   def search
+     @peaple = User.all.length
+     if @peaple > 10
+       @peaple = rand(@peaple - 10)
+       @users = User.where(id: @peaple..Float::INFINITY).limit(10)
+     else
+      @users = User.all.order(id: :desc).limit(10)
+     end
   end
 
   def sign_up
@@ -45,6 +52,12 @@ class UsersController < ApplicationController
   end
 
   def follow
+  end
+
+  def follow_process
+    follow = Follow.new(user_id: current_user.id, follow_user_id: params[:id])
+    follow.save
+    redirect_back(fallback_location: follow_path(current_user.id))
   end
 
   def follower
