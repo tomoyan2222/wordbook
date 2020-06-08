@@ -3,10 +3,10 @@ class UsersController < ApplicationController
   end
 
   def search
-     @peaple = User.all.length
-     if @peaple > 10
-       @peaple = rand(@peaple - 10)
-       @users = User.where(id: @peaple..Float::INFINITY).limit(10)
+     peaple = User.all.length
+     if peaple > 10
+       peaple = rand(peaple - 10)
+       @users = User.where(id: peaple..Float::INFINITY).limit(10)
      else
       @users = User.all.order(id: :desc).limit(10)
      end
