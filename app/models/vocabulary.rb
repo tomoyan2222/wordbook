@@ -3,6 +3,6 @@ class Vocabulary < ApplicationRecord
 
   WORD_FORMAT = /\A[a-zA-Z0-9]+\z/
 
-  validates :word, presence: true, format: {with: WORD_FORMAT}
+  validates :word, presence: true, format: {with: WORD_FORMAT}, length: { maximum: 74 }
   validates :meaning, presence: true
 end
