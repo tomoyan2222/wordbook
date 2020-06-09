@@ -8,44 +8,75 @@
         <div class="form_field">
           <label>category</select>
           <select name="category">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+            <% @category.each do |category| %>
+              <option value="<%= category.id %>"><%= category.name %></option>
+            <% end %>
           </select>
         </div>
         <div class="form_field">
           <label>order_by</select>
           <select name="turn">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+            <option value="0">指定なし</option>
+            <option value="1">bookmarkが多い順</option>
+            <option value="2">最新の投稿</option>
           </select>
         </div>
         <input type="submit" value='research now' class="button_to">
       </form>
     </div>
-    <div class="contents">
-      <%= image_tag '/user_images/ぬこ.jpg' %>
-      <div class="wordbook">
-        <h1>title:<a href="#">サンプルタイトル</a></h1>
-        <p>category:<a href="#">サンプルカテゴリー</a></p>
-        <p>made by:<a href="#">サンプルマン</a></p>
-        <p>created:2020/6/1,13:21</p>
-        <button>Fav</button>
-      </div>
-    </div>
-    <div class="contents">
-      <%= image_tag '/user_images/ぬこ.jpg' %>
-      <div class="wordbook">
-        <h1>title:<a href="#">サンプルタイトル</a></h1>
-        <p>category:<a href="#">サンプルカテゴリー</a></p>
-        <p>made by:<a href="#">サンプルマン</a></p>
-        <p>created:2020/6/1,13:21</p>
-        <button>Fav</button>
-      </div>
-    </div>
+    <%# いいねが多い順の時 %>
+    <% if @bookmarks.present? %>
+      <%# 検索ワードが入っている時 %>
+      <% if params[:word].present? %>
+        <% @bookmarks.each do |titles| %>
+          <% title = Title.find(titles[0]) %>
+          <% if title.category_id == params[:category].to_i %>
+            <% if title.name.to_s.include?(params[:word]) %>
+              <div class="contents">
+                <%= image_tag image_url(User.find(title.user_id)) %>
+                <div class="wordbook">
+                  <h1>title:<%= link_to "#{title.name}", list_path(title.id) %></h1>
+                  <p>category:<%= Category.find(title.category_id).name %></p>
+                  <p>made by:<%= User.find(title.user_id).name %></p>
+                  <p>created:<%= title.created_at %></p>
+                  <p class="display_right"><%= titles[1] %></p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %> 
+      <% else %>
+      <%# 検索ワードが入っていない時 %>
+        <% @bookmarks.each do |titles| %>
+          <% title = Title.find(titles[0]) %>
+          <% if title.category_id == params[:category].to_i %>
+            <div class="contents">
+              <%= image_tag image_url(User.find(title.user_id)) %>
+              <div class="wordbook">
+                <h1>title:<%= link_to "#{title.name}", list_path(title.id) %></h1>
+                <p>category:<%= Category.find(title.category_id).name %></p>
+                <p>made by:<%= User.find(title.user_id).name %></p>
+                <p>created:<%= title.created_at %></p>
+                <p class="display_right"><%= titles[1] %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%# いいねが多い順以外 %>
+      <% @titles.each do |title| %>
+        <div class="contents">
+        <%= image_tag image_url(User.find(title.user_id)) %>
+          <div class="wordbook">
+            <h1>title:<%= link_to "#{title.name}", list_path(title.id) %></h1>
+            <p>category:<%= Category.find(title.category_id).name %></p>
+            <p>made by:<%= User.find(title.user_id).name %></p>
+            <p>created:<%= title.created_at %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </article>
   <%= render partial: 'users/right_aside' %>
 </div>

@@ -5,6 +5,26 @@ class WordsController < ApplicationController
   end
 
   def search
+    @category = Category.all
+    @titles = Title.all.order(created_at: :desc)
+    if params[:category].present?
+      if params[:turn] == "0"
+        @titles = Title.where(category_id: params[:category])
+      elsif params[:turn] == "1"
+        @bookmarks = Bookmark.group(:title_id).order('count_all desc').count
+      elsif params[:turn] == "2"
+        @titles = Title.where(category_id: params[:category]).order(created_at: :desc)
+      end
+    end
+    if params[:word].present?
+      if params[:turn] == "0"
+        @titles = Title.where("name like ?", "%#{params[:word]}%").where(category_id: params[:category])
+      elsif params[:turn] == "1"
+        @bookmarks = Bookmark.group(:title_id).order('count_all desc').count
+      elsif params[:turn] == "2"
+        @titles = Title.where("name like ?", "%#{params[:word]}%").where(category_id: params[:category]).order(created_at: :desc)
+      end
+    end
   end
 
   def create
