@@ -80,7 +80,7 @@ class UsersController < ApplicationController
 
   def word
     @user = User.find(params[:id])
-    @title = Title.where(user_id: current_user.id)
+    @title = Title.where(user_id: @user.id)
   end
 
   def likes
