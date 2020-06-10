@@ -1,5 +1,7 @@
 class WordsController < ApplicationController
   before_action :authorize, except: [:list, :search]
+
+  PER = 10
   
   def list
     @title = Title.find(params[:id])
@@ -8,23 +10,23 @@ class WordsController < ApplicationController
 
   def search
     @category = Category.all
-    @titles = Title.all.order(created_at: :desc)
+    @titles = Title.all.order(created_at: :desc).page(params[:page]).per(PER)
     if params[:category].present?
       if params[:turn] == "0"
-        @titles = Title.where(category_id: params[:category])
+        @titles = Title.where(category_id: params[:category]).page(params[:page]).per(PER)
       elsif params[:turn] == "1"
         @bookmarks = Bookmark.group(:title_id).order('count_all desc').count
       elsif params[:turn] == "2"
-        @titles = Title.where(category_id: params[:category]).order(created_at: :desc)
+        @titles = Title.where(category_id: params[:category]).order(created_at: :desc).page(params[:page]).per(PER)
       end
     end
     if params[:word].present?
       if params[:turn] == "0"
-        @titles = Title.where("name like ?", "%#{params[:word]}%").where(category_id: params[:category])
+        @titles = Title.where("name like ?", "%#{params[:word]}%").where(category_id: params[:category]).page(params[:page]).per(PER)
       elsif params[:turn] == "1"
         @bookmarks = Bookmark.group(:title_id).order('count_all desc').count
       elsif params[:turn] == "2"
-        @titles = Title.where("name like ?", "%#{params[:word]}%").where(category_id: params[:category]).order(created_at: :desc)
+        @titles = Title.where("name like ?", "%#{params[:word]}%").where(category_id: params[:category]).order(created_at: :desc).page(params[:page]).per(PER)
       end
     end
   end

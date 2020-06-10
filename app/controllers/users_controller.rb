@@ -1,17 +1,19 @@
 class UsersController < ApplicationController
   before_action :authorize, except: [:top, :search, :sign_up, :sign_up_process, :sign_in, :sign_in_process, :profile, :word] 
 
+  PER = 10
+  
   def top 
-    @titles = Title.all.order(created_at: :desc)
+    @titles = Title.all.order(created_at: :desc).page(params[:page]).per(PER)
   end
 
   def search
      peaple = User.all.length
      if peaple > 10
        peaple = rand(peaple - 10)
-       @users = User.where(id: peaple..Float::INFINITY).limit(10)
+       @users = User.where(id: peaple..Float::INFINITY).page(params[:page]).per(PER)
        if params[:word].present?
-        @users = User.where("original_name like ?", "%#{params[:word]}%")
+        @users = User.where("original_name like ?", "%#{params[:word]}%").page(params[:page]).per(PER)
        end
      else
       @users = User.all.order(id: :desc).limit(10)
@@ -61,7 +63,7 @@ class UsersController < ApplicationController
   end
 
   def follow
-    @follows = Follow.where(user_id: current_user.id)
+    @follows = Follow.where(user_id: current_user.id).page(params[:page]).per(PER)
   end
 
   def follow_process
@@ -77,16 +79,16 @@ class UsersController < ApplicationController
   end
   
   def follower
-    @followers = Follow.where(follow_user_id: current_user.id)
+    @followers = Follow.where(follow_user_id: current_user.id).page(params[:page]).per(PER)
   end
 
   def word
     @user = User.find(params[:id])
-    @title = Title.where(user_id: @user.id)
+    @title = Title.where(user_id: @user.id).page(params[:page]).per(PER)
   end
 
   def likes
-    @bookmarks = Bookmark.where(user_id: current_user.id)
+    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).per(PER)
   end
 
   def bookmarks
