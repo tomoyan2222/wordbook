@@ -8,6 +8,9 @@ class UsersController < ApplicationController
      if peaple > 10
        peaple = rand(peaple - 10)
        @users = User.where(id: peaple..Float::INFINITY).limit(10)
+       if params[:word].present?
+        @users = User.where("original_name like ?", "%#{params[:word]}%")
+       end
      else
       @users = User.all.order(id: :desc).limit(10)
      end
