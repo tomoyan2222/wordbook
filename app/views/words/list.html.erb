@@ -15,17 +15,17 @@
       </div>
     </div>
     <div class="top_buttons">
-      <button class="hide">En hide/unhide</button>
-      <button class="hide">Ja hide/unhide</button>
+      <button class="hide en_hide">En hide/unhide</button>
+      <button class="hide ja_hide">Ja hide/unhide</button>
     </div>
     <% @vocabulary.each do |vocabulary| %>
       <div class="word_list">
-        <div class="en_word">
+        <div>
           <% splice_word(vocabulary.word).each do |word| %>
-            <p><%= word %></p>
+            <p class="en_word text_clear"><%= word %></p>
           <% end %>
         </div>
-        <p><%= vocabulary.meaning %></p>
+        <p class="ja_word"><%= vocabulary.meaning %></p>
         <% if current_user.present? %>
           <% if @title.user_id == current_user.id %>
             <div class="btns">

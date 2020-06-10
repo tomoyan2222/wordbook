@@ -154,3 +154,8 @@ footer {
     margin: 20px auto 0;
 }
 
+.clear_text {
+	text-indent:100%;
+	white-space:nowrap;
+	overflow:hidden;
+}

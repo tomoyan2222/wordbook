@@ -55,6 +55,18 @@
         $('.alert').slideUp(1000)
       }, 2000);
     });
+
+    $(function() {
+      $('.en_hide').on('click', function() {
+        $('.en_word').toggleClass('clear_text')
+      });
+    });
+
+    $(function() {
+      $('.ja_hide').click(function() {
+        $('.ja_word').toggleClass('clear_text')
+      });
+    });
     </script>
   </body>
 </html>
