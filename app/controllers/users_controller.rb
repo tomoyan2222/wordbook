@@ -79,7 +79,7 @@ class UsersController < ApplicationController
   end
 
   def word
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     @title = Title.where(user_id: current_user.id)
   end
 

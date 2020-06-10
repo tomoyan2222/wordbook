@@ -33,8 +33,14 @@
             </tr>
         </table>
         <div class="btn">
-            <a href="#"><button class="btn_a">follow</button></a>
-            <a href="#"><button class="btn_a">go to wordbooks</button></a>
+          <% if current_user.present? %>
+            <%= link_to follow_process_path(current_user.id) do %>
+              <button class="btn_a">follow</button>
+            <% end %>
+          <% end %>
+          <%= link_to user_word_path(@user.id) do %>
+            <button class="btn_a">go to wordbooks</button>
+          <% end %>
         </div>
         <p><%= @user.profile %></p>
     </div>
