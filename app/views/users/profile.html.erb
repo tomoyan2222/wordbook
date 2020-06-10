@@ -34,8 +34,14 @@
         </table>
         <div class="btn">
           <% if current_user.present? %>
-            <%= link_to follow_process_path(current_user.id) do %>
-              <button class="btn_a">follow</button>
+            <% if Follow.exists?(user_id: current_user.id, follow_user_id: @user.id) %>
+              <%= link_to unfollow_path(@user.id) do %>
+                <button class="btn_c">unfollow</button>
+              <% end %>
+            <% else %>
+              <%= link_to follow_process_path(@user.id) do %>
+                <button class="btn_a">follow</button>
+              <% end %>
             <% end %>
           <% end %>
           <%= link_to user_word_path(@user.id) do %>

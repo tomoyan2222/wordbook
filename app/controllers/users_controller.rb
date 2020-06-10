@@ -69,7 +69,7 @@ class UsersController < ApplicationController
   end
 
   def unfollow
-    follow = Follow.find(params[:id])
+    follow = Follow.find_by(user_id: current_user.id, follow_user_id: params[:id])
     follow.destroy
     redirect_back(fallback_location: follow_path(current_user.id))
   end
