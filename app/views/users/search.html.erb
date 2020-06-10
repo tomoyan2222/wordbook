@@ -16,13 +16,15 @@
           <p>User_ID:<%= user.original_name %></p>
           <p>wordbooks:<%= Title.where(id: user.id).length %></p>
           <p>followers:<%= Follow.where(follow_user_id: user.id).length %></p>
-          <% if Follow.exists?(user_id: current_user.id, follow_user_id: user.id) %>
-            <%= link_to unfollow_path(Follow.find_by(user_id: current_user.id, follow_user_id: user.id)) do %>
-              <button class="unfollow">unfollow</button>
-            <% end %>
-          <% else %>
-            <%= link_to follow_process_path(user.id) do %>
-              <button>follow</button>
+          <% if current_user.present? %>
+            <% if Follow.exists?(user_id: current_user.id, follow_user_id: user.id) %>
+              <%= link_to unfollow_path(Follow.find_by(user_id: current_user.id, follow_user_id: user.id)) do %>
+                <button class="unfollow">unfollow</button>
+              <% end %>
+            <% else %>
+              <%= link_to follow_process_path(user.id) do %>
+                <button>follow</button>
+              <% end %>
             <% end %>
           <% end %>
         </div>
