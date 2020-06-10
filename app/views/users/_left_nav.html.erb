@@ -8,11 +8,11 @@
       <li><%= link_to "My wordbooks", user_word_path(current_user.id) %></li>
       <li><%= link_to "My bookmarks", likes_path(current_user.id) %></li>
     <% else %>
-      <a href="#"><li>My follows</li></a>
-      <a href="#"><li>My follows</li></a>
-      <a href="#"><li>My followers</li></a>
-      <a href="#"><li>My wordbooks</li></a>
-      <a href="#"><li>My bookmarks</li></a>
+      <li><%= link_to "My profile", sign_in_path %></li>
+      <li><%= link_to "My follows", sign_in_path %></li>
+      <li><%= link_to "My followers", sign_in_path %></li>
+      <li><%= link_to "My wordbooks", sign_in_path %></li>
+      <li><%= link_to "My bookmarks", sign_in_path %></li>
     <% end %>
   </ul>
 </nav>
