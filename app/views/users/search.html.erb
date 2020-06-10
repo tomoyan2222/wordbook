@@ -12,7 +12,9 @@
       <div class="contents">
         <%= image_tag image_url(user) %>
         <div class="content">
-          <h1>name:<%= link_to "#{user.name}", profile_path(user.id) %></h1>
+          <%= link_to profile_path(user.id) do %>
+            <h1>name:<%= user.name %></h1>
+          <% end %>
           <p>User_ID:<%= user.original_name %></p>
           <p>wordbooks:<%= Title.where(id: user.id).length %></p>
           <p>followers:<%= Follow.where(follow_user_id: user.id).length %></p>
