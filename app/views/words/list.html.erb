@@ -26,23 +26,27 @@
           <% end %>
         </div>
         <p><%= vocabulary.meaning %></p>
-        <div class="btns">
-          <%= link_to edit_path(vocabulary.id) do %>
-            <button class="edit_btn">edit</button>
+        <% if current_user.present? %>
+          <% if @title.user_id == current_user.id %>
+            <div class="btns">
+              <%= link_to edit_path(vocabulary.id) do %>
+                <button class="edit_btn">edit</button>
+              <% end %>
+              <%= link_to delete_path(vocabulary.id) do %>
+                <button class="del_btn">delete</button>
+              <% end %>
+            </div>
           <% end %>
-          <%= link_to delete_path(vocabulary.id) do %>
-            <button class="del_btn">delete</button>
-          <% end %>
-        </div>
+        <% end %>
       </div>
     <% end %>
-    <div class="update_wordbook">
-      <p>wordbook updates</p>
-      <%= link_to add_path(@title.id) do %>
-        <button class="add_btn">add word</button>
-      <% end %>
-      <% if current_user.present? %>
-        <% if @title.user_id == current_user.id %>
+    <% if current_user.present? %>
+      <% if @title.user_id == current_user.id %>
+        <div class="update_wordbook">
+          <p>wordbook updates</p>
+          <%= link_to add_path(@title.id) do %>
+            <button class="add_btn">add word</button>
+          <% end %>
           <div class="edit_wordbooks">
             <%= link_to edit_wordbook_path(@title.id) do %>
               <button>edit</button>
@@ -51,9 +55,9 @@
               <button>delete</button>
             <% end %>
           </div>
-        <% end %>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   </article>
   <%= render partial: 'users/right_aside' %>
 </div>
