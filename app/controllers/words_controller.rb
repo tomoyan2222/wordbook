@@ -1,4 +1,6 @@
 class WordsController < ApplicationController
+  before_action :authorize, except: [:list, :search]
+  
   def list
     @title = Title.find(params[:id])
     @vocabulary = Vocabulary.where(title_id: @title.id)

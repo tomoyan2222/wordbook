@@ -15,6 +15,12 @@ module UsersHelper
         end
     end
 
+    def authorize
+        if current_user.blank?
+            redirect_to sign_in_path
+        end
+    end
+
     def image_url(user)
         if user.image.blank?
             "https://dummyimage.com/200x200/000/fff"

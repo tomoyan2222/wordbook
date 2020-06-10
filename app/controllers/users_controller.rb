@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authorize, except: [:top, :search, :sign_up, :sign_up_process, :sign_in, :sign_in_process, :profile, :word] 
+
   def top 
     @titles = Title.all.order(created_at: :desc)
   end
