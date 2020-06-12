@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: wordbook_production
   username: wordbook
   password: <%= ENV['WORDBOOK_DATABASE_PASSWORD'] %>
