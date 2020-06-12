@@ -70,7 +70,7 @@ class WordsController < ApplicationController
         flash[:danger] << "can't be blank."
       end
       if word_params[:word] !=~ /\A[a-zA-Z0-9]+\z/
-        flash[:danger] = "please type using half-width characters"
+        flash[:danger] = "please type using only half-width characters"
       end
       if word_params[:word].length > 74
         flash[:danger] = "up to 75 characters"
