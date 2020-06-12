@@ -16,7 +16,7 @@ FactoryBot.define do
   end
 
   factory :vocabulary do
-    name { 'test_word' }
-    meaning { 'test_meaning' }
+    word { 'test-word' }
+    meaning { 'テスト' }
   end
 end

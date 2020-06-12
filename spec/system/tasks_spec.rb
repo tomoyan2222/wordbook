@@ -8,10 +8,10 @@ describe 'wordbook管理機能', type: :system do
       #create category
       category = FactoryBot.create(:category)
       #create wordbook by user-A
-      FactoryBot.create(:title, category_id: category.id, user_id: user_a.id)
+      @title = FactoryBot.create(:title, category_id: category.id, user_id: user_a.id)
     end
 
-    context 'ユーザーAがログイン時' do
+    context 'ユーザーAがTitle作成時' do
       before do
         visit sign_in_path
         fill_in 'original_name', with: 'userA1234'
@@ -22,6 +22,17 @@ describe 'wordbook管理機能', type: :system do
       it 'ユーザーAのワードブックが表示される' do
         visit user_word_path(User.find_by(name: 'userA').id)
         expect(page).to have_content 'testbook'
+      end
+    end
+
+    context 'ユーザーAが単語追加時' do
+      before do
+        FactoryBot.create(:vocabulary, word: 'testword', meaning: 'テスト', title_id: @title.id)
+      end
+
+      it 'ユーザーAのワードブックが表示される' do
+        visit list_path(@title.id)
+        expect(page).to have_content 'testword'
       end
     end
 end
