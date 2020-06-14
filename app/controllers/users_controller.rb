@@ -30,8 +30,7 @@ class UsersController < ApplicationController
       user_sign_in(@user)
       redirect_to top_path, notice: "Hi, #{current_user.name}さん" 
     else
-      flash[:danger] = 'エラーです。'
-      redirect_to sign_up_path
+      render 'sign_up'
     end
   end
 

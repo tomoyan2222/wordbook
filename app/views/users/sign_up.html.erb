@@ -1,9 +1,9 @@
-<% flash.each do |type, message| %>
-    <div class="alert <%= type %>"><p><%= message %></p></div>
+<% @user.errors.full_messages.each do |message| %>
+    <div class="danger"><p><%= message %></p></div>
 <% end %>
 <div class="sign_up_box">
     <h1>新規登録する</h1>
-    <%= form_with url: sign_up_path do |f| %>
+    <%= form_with url: sign_up_path, local: true do |f| %>
         <div class="form_field">
             <%= f.label "what's your name?" %>
             <%= f.text_field :name %>
