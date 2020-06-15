@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Our,wordbook
 
-Things you may want to cover:
+アプリ概要: アプリ内で暗記用の英単語帳を作成、共有、閲覧できるアプリです。学生がテスト前に教科書の中から、英単語を自身で抜粋し、一人一人自分用の単語帳を作成しているシーンがあったため、誰かがひとつ英単語帳を作成すれば、共有するためのアプリと想定しています。
 
-* Ruby version
+機能一覧
+・サインアップ/サインイン/サインアウト
+・フォロー
+・プロフィール作成/編集
+・パスワード変更
+・ブックマーク
+・単語帳作成/削除/編集
+・単語追加/削除/編集
+・単語帳検索
+・単語を隠す(jQuery)
 
-* System dependencies
+使用技術
+・言語: Ruby 2.6.3 / jQuery
+・FM: Ruby on rails 6.0.3.1
+・SQL: MySQL 8.0.19
+・環境: heroku
+・バージョン管理: GitHub
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+gem
+・bcrypt
+・kaminari
+・RSpec
+・FactoryBot
+・capybara
