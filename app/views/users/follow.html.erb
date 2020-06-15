@@ -1,23 +1,27 @@
 <div class="display_flex">
   <%= render partial: 'users/left_nav' %>
   <article>
-    <% @follows.each do |follow| %>
-      <div class="contents">
-        <%= image_tag image_url(User.find(follow.follow_user_id)) %>
-        <div class="content">
-          <%= link_to profile_path(User.find(follow.follow_user_id).id) do %>
-            <h1>name:<%= User.find(follow.follow_user_id).name %></h1>
-          <% end %>
-          <p>User_ID:<%= User.find(follow.follow_user_id).original_name %></p>
-          <p>wordbooks:<%= Title.where(user_id: follow.follow_user_id).length %></p>
-          <p>followers:<%= Follow.where(follow_user_id: follow.follow_user_id).length %></p>
-          <%= link_to unfollow_path(follow.id) do %>
-            <button class="unfollow">unfollow</button>
-          <% end %>
+    <% if @follows.any? %>
+      <% @follows.each do |follow| %>
+        <div class="contents">
+          <%= image_tag image_url(User.find(follow.follow_user_id)) %>
+          <div class="content">
+            <%= link_to profile_path(User.find(follow.follow_user_id).id) do %>
+              <h1>name:<%= User.find(follow.follow_user_id).name %></h1>
+            <% end %>
+            <p>User_ID:<%= User.find(follow.follow_user_id).original_name %></p>
+            <p>wordbooks:<%= Title.where(user_id: follow.follow_user_id).length %></p>
+            <p>followers:<%= Follow.where(follow_user_id: follow.follow_user_id).length %></p>
+            <%= link_to unfollow_path(follow.id) do %>
+              <button class="unfollow">unfollow</button>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
+      <%= paginate @follows %>
+    <% else %>
+      <p>you have not followed any users</p>
     <% end %>
-    <%= paginate @follows %>
   </article>
   <%= render partial: 'users/right_aside' %>
 </div>
