@@ -9,19 +9,19 @@
     <%= form_with url: profile_edit_path, method: :post, local: true do |f| %>
         <div class="form_field">  
             <%= f.label :name %>
-            <%= f.text_field :name, value:"" %>
+            <%= f.text_field :name, value:"#{@user.name}" %>
         </div>
         <div class="form_field">
             <%= f.label :original_name, 'user_ID' %>
-            <%= f.text_field :original_name, value:"" %>
+            <%= f.text_field :original_name, value:"#{@user.original_name}" %>
         </div>
         <div class="form_field">
             <%= f.label :image %>
-            <%= f.file_field :image, value:"" %>
+            <%= f.file_field :image %>
         </div>
         <div class="form_field">
             <%= f.label :profile, 'profile' %>
-            <%= f.text_area :profile, value:"" %> 
+            <%= f.text_area :profile, value:"#{@user.profile}" %> 
         </div>
         <%= f.submit "send" %>
     <% end %>
