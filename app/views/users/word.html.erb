@@ -5,18 +5,22 @@
   <%= render partial: 'left_nav' %>
   <article>
     <h1>【<%= @user.name %>'s wordbooks】</h1>
-    <% @title.each do |title| %>
-      <div class="contents">
-        <div class="user_word"">
-          <%= link_to list_path(title.id) do %>
-            <h1 class="title">title:<%= title.name %></h1>
-            <p>category:<%= Category.find(title.category_id).name %></p>
-            <p>last updated:<%= title.updated_at.strftime('%Y/%m/%d, %H:%M') %></p>
-          <% end %>
+    <% if @title.any? %>
+      <% @title.each do |title| %>
+        <div class="contents">
+          <div class="user_word"">
+            <%= link_to list_path(title.id) do %>
+              <h1 class="title">title:<%= title.name %></h1>
+              <p>category:<%= Category.find(title.category_id).name %></p>
+              <p>last updated:<%= title.updated_at.strftime('%Y/%m/%d, %H:%M') %></p>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
+      <%= paginate @title %>
+    <% else %>
+      <p>your wordbook doesn&rsquo;t exists.</p>
     <% end %>
-    <%= paginate @title %>
   </article>
   <%= render partial: 'right_aside' %>
 </div>
