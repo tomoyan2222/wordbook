@@ -14,19 +14,19 @@ Our,wordbook
 </ul>
 
 ### gem
-・bcrypt<br>
-・kaminari<br>
-・RSpec<br>
-・FactoryBot<br>
-・capybara<br>
+<li>bcrypt</li>
+<li>kaminari</li>
+<li>RSpec</li>
+<li>FactoryBot</li>
+<li>capybara</li>
 
 ### 機能一覧
-・サインアップ/サインイン/サインアウト<br>
-・フォロー<br>
-・プロフィール作成/編集<br>
-・パスワード変更<br>
-・ブックマーク<br>
-・単語帳作成/削除/編集<br>
-・単語追加/削除/編集<br>
-・単語帳検索<br>
-・単語を隠す(jQuery)<br>
+<li>サインアップ/サインイン/サインアウト</li>
+<li>フォロー</li>
+<li>プロフィール作成/編集</li>
+<li>パスワード変更</li>
+<li>ブックマーク</li>
+<li>単語帳作成/削除/編集</li>
+<li>単語追加/削除/編集</li>
+<li>単語帳検索</li>
+<li>単語を隠す(jQuery)</li>
