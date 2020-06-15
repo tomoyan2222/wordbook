@@ -17,7 +17,7 @@ class WordsController < ApplicationController
       elsif params[:turn] == "1"
         @title_count = Title.joins(:bookmarks).group(:title_id).count(:user_id)
         bookmark_ids = Hash[@title_count.sort_by{ | k, v | v }.reverse].keys
-        @titles = Title.where(id: bookmark_ids).order("field(id, #{bookmark_ids.join(',')})").page(params[:page]).per(PER)
+        @titles = Title.where(id: bookmark_ids, category_id: params[:category]).order("field(id, #{bookmark_ids.join(',')})").page(params[:page]).per(PER)
       elsif params[:turn] == "2"
         @titles = Title.where(category_id: params[:category]).order(created_at: :desc).page(params[:page]).per(PER)
       end
@@ -28,7 +28,7 @@ class WordsController < ApplicationController
       elsif params[:turn] == "1"
         @title_count = Title.joins(:bookmarks).group(:title_id).count(:user_id)
         bookmark_ids = Hash[@title_count.sort_by{ | k, v | v }.reverse].keys
-        @titles = Title.where("name like ?", "%#{params[:word]}%").where(id: bookmark_ids).order("field(id, #{bookmark_ids.join(',')})").page(params[:page]).per(PER)
+        @titles = Title.where("name like ?", "%#{params[:word]}%").where(id: bookmark_ids, category_id: params[:category]).order("field(id, #{bookmark_ids.join(',')})").page(params[:page]).per(PER)
       elsif params[:turn] == "2"
         @titles = Title.where("name like ?", "%#{params[:word]}%").where(category_id: params[:category]).order(created_at: :desc).page(params[:page]).per(PER)
       end
