@@ -16,7 +16,7 @@ class UsersController < ApplicationController
         @users = User.where("original_name like ?", "%#{params[:word]}%").page(params[:page]).per(PER)
        end
      else
-      @users = User.all.order(id: :desc)
+      @users = User.all.order(id: :desc).page(params[:page]).per(PER)
      end
   end
 
